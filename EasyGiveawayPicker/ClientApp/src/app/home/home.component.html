@@ -1,0 +1,8 @@
+
+<input name="giveawayTweet" [(ngModel)]="giveawayTweet" placeholder="Giveaway tweet"/>
+<button (click)="getTweets()" mat-button>Select winner</button>
+<div *ngIf="!isLoading && winnerSelected">
+  <div>Winner reply is:</div>
+  <div [innerHtml]="tw.html"></div>
+  <div>Reply {{tw.index}} out of {{tw.total}} selected</div>
+</div>
