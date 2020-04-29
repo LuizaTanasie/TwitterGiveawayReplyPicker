@@ -1,6 +1,12 @@
 
-<input name="giveawayTweet" [(ngModel)]="giveawayTweet" placeholder="Giveaway tweet"/>
-<button (click)="getTweets()" mat-button>Select winner</button>
+<form #tweetForm>
+  <mat-form-field class="input">
+    <mat-label>Giveaway tweet</mat-label>
+    <input matInput name="giveawayTweet" [(ngModel)]="giveawayTweet" placeholder="Giveaway tweet" #giveawayTweetInput="ngModel"/>
+  </mat-form-field>
+  <button (click)="getTweets()" mat-flat-button color="primary">Select winner</button>
+</form>
+<mat-spinner *ngIf="isLoading"></mat-spinner>
 <div *ngIf="!isLoading && winnerSelected">
   <div>Winner reply is:</div>
   <div [innerHtml]="tw.html"></div>
